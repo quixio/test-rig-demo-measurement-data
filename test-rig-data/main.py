@@ -2,7 +2,6 @@ import os
 import datetime
 import json
 from flask import Flask, request, Response, redirect
-from flasgger import Swagger
 from waitress import serve
 import time
 
@@ -27,43 +26,6 @@ app = Flask(__name__)
 
 # Enable CORS for all routes and origins by default
 CORS(app)
-
-app.config['SWAGGER'] = {
-    'title': 'HTTP API Source',
-    'description': 'Test your HTTP API with this Swagger interface. Send data and see it arrive in Quix.',
-    'uiversion': 3
-}
-
-swagger = Swagger(app)
-
-@app.route("/", methods=['GET'])
-def redirect_to_swagger():
-    return redirect("/apidocs/")
-
-@app.route("/data/", methods=['POST'])
-def post_data_without_key():
-    """
-    Post data without key
-    ---
-    parameters:
-      - in: body
-        name: body
-        schema:
-          type: object
-          properties:
-            some_value:
-              type: string
-    responses:
-      200:
-        description: Data received successfully
-    """
-    data = request.json
-    logger.debug(f"{data}")
-
-    producer.produce(topic.name, json.dumps(data))
-
-    # Return a normal 200 response; CORS headers are added automatically by Flask-CORS 
-    return Response(status=200)
 
 @app.route("/data/<key>", methods=['POST'])
 def post_data_with_key(key: str):
