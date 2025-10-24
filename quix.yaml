@@ -181,6 +181,8 @@ deployments:
 # This section describes the Topics of the data pipeline
 topics:
   - name: edf-data
+    configuration:
+      retentionInMinutes: 60
   - name: config-enriched-data
   - name: normalised-data
   - name: config-updates
