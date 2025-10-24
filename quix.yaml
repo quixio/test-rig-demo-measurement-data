@@ -164,7 +164,32 @@ deployments:
         inputType: OutputTopic
         description: Name of the output topic to write to.
         value: normalised-data
-
+  - name: Quix DataLake Sink 2
+    application: DataLake.Sink
+    version: latest
+    deploymentType: Managed
+    resources:
+      cpu: 500
+      memory: 1500
+      replicas: 1
+    configuration:
+      topic: config-enriched-data
+  - name: Replay test
+    application: DataLake.Replay
+    version: latest
+    deploymentType: Managed
+    resources:
+      cpu: 300
+      memory: 900
+      replicas: 1
+    configuration:
+      sourceWorkspaceId: quixers-aerospacedemoingestionpipeline-prod
+      sourceTopic: edf-data
+      sourceKeys: [TOMAS_002, SHOW_0013]
+      destinationTopic: edf-data-replay
+      replaySpeed: 3
+      maxGapSizeInMilliseconds: 1000
+      
 # This section describes the Topics of the data pipeline
 topics:
   - name: edf-data
