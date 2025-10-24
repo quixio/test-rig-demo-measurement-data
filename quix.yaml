@@ -116,6 +116,8 @@ deployments:
     configuration:
       topic: edf-data
       autoOffsetReset: earliest
+
 # This section describes the Topics of the data pipeline
 topics:
   - name: edf-data
+  - name: config-enriched-data
