@@ -180,3 +180,6 @@ topics:
   - name: edf-data
   - name: config-enriched-data
   - name: normalised-data
+  - name: config-updates
+    linkedTopic:
+      workspaceId: quixers-testrigdemoconfigurationmet-5f306d01
