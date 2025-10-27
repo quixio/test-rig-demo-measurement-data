@@ -1,5 +1,5 @@
 import os
-
+print(os.environ)
 from quixstreams import Application
 from quixstreams.dataframe.joins.lookups.quix_configuration_service import QuixConfigurationService
 from quixstreams.dataframe.joins.lookups.quix_configuration_service.lookup import JSONField
