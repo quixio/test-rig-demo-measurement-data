@@ -189,3 +189,4 @@ topics:
     linkedTopic:
       workspaceId: quixers-testrigdemoconfigurationmet-5f306d01
   - name: data-topic
+  - name: config-topic
