@@ -12,7 +12,8 @@ def get_fields():
         "test_id": as_json_field("test_id"),
         "environment_id": as_json_field("environment_id"),
         "campaign_id": as_json_field("campaign_id"),
-        "sample_id": as_json_field("sample_id"),
+        "device_id": as_json_field("devices[0].device_id"),  # Get first device's device_id
+        "device_version": as_json_field("devices[0].device_version"),  # Get first device's device_version
         "operator": as_json_field("operator"),
         "throttle": as_json_field("sensors.throttle.value"),
         "hold_time": as_json_field("sensors.hold_time.value"),
