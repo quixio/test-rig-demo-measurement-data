@@ -187,7 +187,7 @@ topics:
   - name: normalised-data
   - name: config-updates
     linkedTopic:
-      workspaceId: quixers-testrigdemoconfigurationmet-5f306d01
+      workspaceId: quixers-quixtestmanager-new
   - name: data-topic
   - name: config-topic
   - name: prepped-data
