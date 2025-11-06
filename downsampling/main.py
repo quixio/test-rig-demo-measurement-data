@@ -28,7 +28,7 @@ def main():
     sdf = sdf.print_table()
 
     # Finish off by writing to the final result to the output topic
-    #sdf.to_topic(output_topic)
+    sdf.to_topic(output_topic)
 
     # With our pipeline defined, now run the Application
     app.run()
