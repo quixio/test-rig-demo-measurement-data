@@ -226,3 +226,4 @@ topics:
   - name: config-topic
   - name: prepped-data
   - name: transform
+  - name: http-source
