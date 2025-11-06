@@ -24,7 +24,7 @@ def main():
 
     # Do StreamingDataFrame operations/transformations here
     sdf = sdf[sdf.contains("ina260__voltage_v")]
-    sdf = sdf[["ina260__voltage_v', 'ina260__current_ma"]]
+    sdf = sdf[["ina260__voltage_v", "ina260__current_ma"]]
     sdf = sdf.print_table()
 
     # Finish off by writing to the final result to the output topic
