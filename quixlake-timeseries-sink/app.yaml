@@ -5,11 +5,6 @@ variables:
     inputType: InputTopic
     description: Name of the input topic to listen to.
     defaultValue: config-enriched-data
-  - name: input
-    inputType: InputTopic
-    description: Name of the Kafka input topic to consume from
-    required: true
-    value: config-enriched-data
   - name: S3_BUCKET
     inputType: FreeText
     description: S3 bucket name for storing Parquet files
