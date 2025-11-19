@@ -1,4 +1,4 @@
-FROM python:3.12.5-slim-bookworm
+FROM quixcontainerregistry.azurecr.io/quix-datalake-ts-sink:20250917.1-auth
 
 # Set environment variables for non-interactive setup and unbuffered output
 ENV DEBIAN_FRONTEND=noninteractive \
@@ -11,12 +11,6 @@ ARG MAINAPPPATH=.
 
 # Set working directory inside the container
 WORKDIR /app
-
-# Copy requirements to leverage Docker cache
-COPY "${MAINAPPPATH}/requirements.txt" "${MAINAPPPATH}/requirements.txt"
-
-# Install dependencies without caching
-RUN pip install --no-cache-dir -r "${MAINAPPPATH}/requirements.txt"
 
 # Copy entire application into container
 COPY . .
