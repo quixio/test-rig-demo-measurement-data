@@ -12,9 +12,6 @@ ARG MAINAPPPATH=.
 # Set working directory inside the container
 WORKDIR /app
 
-# Copy entire application into container
-COPY . .
-
 # Set working directory to main app path
 WORKDIR "/app/${MAINAPPPATH}"
 
