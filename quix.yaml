@@ -177,7 +177,7 @@ deployments:
       replicas: 1
     configuration:
       topic: config-enriched-data
-  - name: Quix TS Datalake Sink
+  - name: Quix TS Datalake Sink2
     application: quixlake-timeseries-sink
     deploymentType: Service
     resources:
