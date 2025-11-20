@@ -179,6 +179,7 @@ deployments:
       topic: config-enriched-data
   - name: Quix TS Datalake Sink2
     application: quixlake-timeseries-sink
+    version: latest
     deploymentType: Service
     resources:
       cpu: 200
