@@ -1,19 +1,1 @@
 FROM quixcontainerregistry.azurecr.io/quix-datalake-ts-sink:20250917.1-auth
-
-# Set environment variables for non-interactive setup and unbuffered output
-ENV DEBIAN_FRONTEND=noninteractive \
-    PYTHONUNBUFFERED=1 \
-    PYTHONIOENCODING=UTF-8 \
-    PYTHONPATH="/app"
-
-# Build argument for setting the main app path
-ARG MAINAPPPATH=.
-
-# Set working directory inside the container
-WORKDIR /app
-
-# Set working directory to main app path
-WORKDIR "/app/${MAINAPPPATH}"
-
-# Define the container's startup command
-ENTRYPOINT ["python3", "main.py"]
