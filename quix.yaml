@@ -58,7 +58,8 @@ deployments:
         required: true
         secretKey: config_sdk_token
   - name: Quix TS Datalake Sink
-    image: quixcontainerregistry.azurecr.io/quix-datalake-ts-sink:20250917.1-auth
+    application: quix-ts-datalake-sink
+    version: latest
     deploymentType: Service
     resources:
       cpu: 200
@@ -70,15 +71,6 @@ deployments:
         description: Name of the Kafka input topic to consume from
         required: true
         value: config-enriched-data
-      - name: S3_BUCKET
-        inputType: FreeText
-        description: S3 bucket name for storing Parquet files
-        required: true
-        value: quixdatalaketest
-      - name: S3_PREFIX
-        inputType: FreeText
-        description: S3 prefix/path for data files
-        value: ts_test
       - name: TABLE_NAME
         inputType: FreeText
         description: Table name for data organization and registration
@@ -123,18 +115,6 @@ deployments:
         inputType: FreeText
         description: Where to start consuming if no offset exists
         value: earliest
-      - name: AWS_ACCESS_KEY_ID
-        inputType: Secret
-        description: AWS Access Key ID for S3 access
-        secretKey: aws_access_key
-      - name: AWS_SECRET_ACCESS_KEY
-        inputType: Secret
-        description: AWS Secret Access Key for S3 access
-        secretKey: aws_secret_key
-      - name: AWS_REGION
-        inputType: FreeText
-        description: AWS region for S3 bucket
-        value: eu-west-2
       - name: LOGLEVEL
         inputType: FreeText
         description: loglevel
