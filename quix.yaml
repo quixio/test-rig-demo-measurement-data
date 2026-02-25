@@ -73,7 +73,7 @@ deployments:
         value: config-enriched-data
       - name: TABLE_NAME
         inputType: FreeText
-        description: Table name for data organization and registration
+        description: Table name for data organization and registration, else defaults to topic name
         value: test_runs
       - name: HIVE_COLUMNS
         inputType: FreeText
@@ -89,7 +89,7 @@ deployments:
         value: https://iceberg-catalog-quixers-testrigdemodatawarehouse-prod.az-france-0.app.quix.io
       - name: CATALOG_AUTH_TOKEN
         inputType: Secret
-        description: auth token for catalog
+        description: If using a catalog, the respective auth token to access it
         secretKey: quixlake_sdk_token
       - name: AUTO_DISCOVER
         inputType: FreeText
@@ -101,24 +101,36 @@ deployments:
         value: default
       - name: BATCH_SIZE
         inputType: FreeText
-        description: Number of messages to batch before writing to S3
+        description: Number of messages to batch before writing to storage
         value: 1000
       - name: COMMIT_INTERVAL
         inputType: FreeText
         description: Kafka commit interval in seconds
         value: 30
+      - name: KAFKA_KEY_DESERIALIZER
+        inputType: FreeText
+        description: The key deserializer to use
+        value: str
+      - name: KAFKA_VALUE_DESERIALIZER
+        inputType: FreeText
+        description: the value deserializer to use
+        value: json
       - name: CONSUMER_GROUP
         inputType: FreeText
         description: Kafka consumer group name
-        value: aws_sink_v1
+        value: aws_sink_v1.1
       - name: AUTO_OFFSET_RESET
         inputType: FreeText
         description: Where to start consuming if no offset exists
         value: earliest
       - name: LOGLEVEL
         inputType: FreeText
-        description: loglevel
+        description: set application logging level (DEBUG, INFO, WARNING, ERROR, CRITICAL)
         value: INFO
+      - name: MAX_WRITE_WORKERS
+        inputType: FreeText
+        description: How many files can be written in parallel to storage at once (based on partitioning + batch size)
+        value: 10
   - name: Quix DataLake Sink
     application: DataLake.Sink
     version: latest
