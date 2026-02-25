@@ -65,8 +65,6 @@ deployments:
       cpu: 200
       memory: 500
       replicas: 1
-    blobStorage:
-      bind: true
     variables:
       - name: input
         inputType: InputTopic
@@ -76,7 +74,7 @@ deployments:
       - name: TABLE_NAME
         inputType: FreeText
         description: Table name for data organization and registration, else defaults to topic name
-        value: test_runs
+        value: config-enriched-data
       - name: HIVE_COLUMNS
         inputType: FreeText
         description: Comma-separated list of columns for Hive partitioning. Include year/month/day/hour to extract from TIMESTAMP_COLUMN (e.g., location,year,month,day,sensor_type)
@@ -133,6 +131,8 @@ deployments:
         inputType: FreeText
         description: How many files can be written in parallel to storage at once (based on partitioning + batch size)
         value: 10
+    blobStorage:
+      bind: true
   - name: Quix DataLake Sink
     application: DataLake.Sink
     version: latest
