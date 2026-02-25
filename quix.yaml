@@ -65,6 +65,8 @@ deployments:
       cpu: 200
       memory: 500
       replicas: 1
+    blobStorage:
+      bind: true
     variables:
       - name: input
         inputType: InputTopic
